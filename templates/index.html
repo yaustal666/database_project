@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Manga project </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css')}}">
+</head>
+<body>
+
+<a href="/">
+    <button>Reset filters</button>
+</a>
+
+<div class="card_box_wrapper">
+
+    {% for manga in manga_list %}
+    <div class="card">
+        <h3>{{manga["name_rus"]}}</h3>
+        <a href="manga_id={{manga['id']}}">
+            <img class="card_image" src={{manga["img"]}} alt="img">
+        </a>
+        <p>{{manga["name_eng"]}}</p>
+        <p>{{manga["type"]}}</p>
+        <p>{{manga["release_year"]}}</p>
+    </div>
+    {% endfor %}
+
+</div>
+
+</body>
+</html>

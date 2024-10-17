@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Manga project </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='manga.css')}}">
+</head>
+<body>
+
+<div class="main_wrapper">
+
+    <a href="/">
+        <button> Home</button>
+    </a>
+
+    <div class="manga_wrapper">
+        <div class="image_wrapper">
+            <img class="manga_image" src={{manga["img"]}} alt="img">
+        </div>
+
+        <div class="info_wrapper">
+            <div class="naming">
+                <h1>{{manga["name_rus"]}}</h1>
+                <h2>{{manga["name_eng"]}}</h2>
+            </div>
+
+            <div class="status_info">
+                <p>Тип манги: {{manga["type"]}}</p>
+                <p>Дата выхода: {{manga["release_year"]}}</p>
+                <p>Статус: {{manga["status"]}}</p>
+                <p>Автор: {{manga["author"]}}</p>
+                <p>Количество глав: {{manga["chapters_count"]}}</p>
+                <p>Возрастное ограничение: {{manga["age_rating"]}}</p>
+            </div>
+
+            <div class="tag_box">
+                {% for tag in tags %}
+                <a href="tag_id={{tag['id']}}">
+                    <button class="tag">{{tag["name"]}}</button>
+                </span>
+                </a>
+                {% endfor %}
+            </div>
+
+
+            <div class="rating_wrapper">
+                <p>Mungabuff: {{rating["rating_1"]}}</p>
+                <p>Remanga: {{rating["rating_2"]}}</p>
+                <p>Nighthub: {{rating["rating_3"]}}</p>
+            </div>
+
+            <div class="description">
+                <h3>Описание</h3>
+                <p>{{manga["description"]}}</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
